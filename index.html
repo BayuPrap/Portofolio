@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Data Analyst - Nama Anda</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Nama Anda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Keterampilan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="jumbotron text-center text-white">
+        <div class="overlay-purple"></div>
+        <div class="container position-relative">
+            <div class="hero-content">
+                <h1 class="display-4">Hi, Saya Data Analyst</h1>
+                <p class="lead">
+                    Mengubah data menjadi insight yang bermanfaat untuk pengambilan keputusan.
+                </p>
+                <a href="#projects" class="btn btn-gradient-purple btn-lg mt-4">
+                    Lihat Proyek Saya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-5 bg-dark-section">
+        <div class="container">
+            <h2 class="text-center mb-5 text-light">Tentang Saya</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src="assets/img/profile.jpg" class="img-fluid rounded-circle" alt="Profile">
+                </div>
+                <div class="col-md-8">
+                    <p class="text-light">Saya adalah seorang Data Analyst dengan pengalaman dalam mengolah dan menganalisis data untuk mendukung pengambilan keputusan bisnis. Saya menguasai berbagai teknologi analisis dan visualisasi data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-5 bg-dark-section">
+        <div class="container">
+            <h2 class="text-center mb-5 text-light">Keterampilan Saya</h2>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <i class="fas fa-database fa-2x text-purple mb-3"></i>
+                    <h5 class="text-light">SQL</h5>
+                    <p class="text-deskripsi">Query dan manipulasi data dari database</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <i class="fab fa-python fa-2x text-purple mb-3"></i>
+                    <h5 class="text-light">Python</h5>
+                    <p class="text-deskripsi">Pandas, NumPy, Matplotlib, Seaborn</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <i class="fas fa-chart-line fa-2x text-purple mb-3"></i>
+                    <h5 class="text-light">Excel</h5>
+                    <p class="text-deskripsi">Analisis data dan visualisasi lanjutan</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <i class="fas fa-table fa-2x text-purple mb-3"></i>
+                    <h5 class="text-light">Power BI / Tableau</h5>
+                    <p class="text-deskripsi">Dashboard interaktif dan visualisasi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-5 bg-dark-section">
+        <div class="container">
+            <h2 class="text-center mb-5 text-light">Proyek Terbaru</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card-project">
+                        <div class="project-badge">Python</div>
+                        <img src="assets/img/project1.jpg" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Analisis Penjualan Retail</h5>
+                            <p class="card-text">Menggunakan Python dan SQL untuk menganalisis tren penjualan.</p>
+                            <a href="assets/project-files/analisis-penjualan.pdf" target="_blank" class="btn btn-outline-purple btn-sm">Lihat PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card-project">
+                        <div class="project-badge">Power BI</div>
+                        <img src="assets/img/project2.jpg" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Dashboard Penjualan</h5>
+                            <p class="card-text">Dashboard interaktif menggunakan Power BI.</p>
+                            <a href="https://drive.google.com/file/d/..." target="_blank" class="btn btn-outline-purple btn-sm">Lihat di Drive</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card-project">
+                        <div class="project-badge">Scikit-Learn</div>
+                        <img src="assets/img/project3.jpg" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Clustering Pelanggan</h5>
+                            <p class="card-text">Segmentasi pelanggan menggunakan Scikit-learn.</p>
+                            <a href="assets/project-files/notebook-penjualan.ipynb" target="_blank" class="btn btn-outline-purple btn-sm">Lihat Notebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-5 bg-dark-custom text-white">
+        <div class="container">
+            <h2 class="text-center mb-5">Kontak Saya</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control bg-dark-input text-white" id="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control bg-dark-input text-white" id="email">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Pesan</label>
+                    <textarea class="form-control bg-dark-input text-white" id="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-gradient-purple">Kirim</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-custom text-white text-center py-3">
+        <p>&copy; 2025 Nama Anda. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
