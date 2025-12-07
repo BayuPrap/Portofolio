@@ -32,3 +32,31 @@
         element.textContent = "";
         setTimeout(typeWriter, 1000); // Mulai setelah 1 detik
     });
+
+    // === Navbar Hide/Show on Scroll ===
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scroll ke bawah → sembunyikan navbar
+            navbar.classList.add('hidden');
+        } else {
+            // Scroll ke atas → tampilkan navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+    // === Smooth Scroll for Navigation Links ===
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
