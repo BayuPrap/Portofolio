@@ -1,0 +1,36 @@
+{
+  "about": {
+    "name": "Maulana Krisna Bayu Pratama",
+    "bio": "Saya adalah seorang Data Analyst dengan pengalaman dalam mengolah dan menganalisis data untuk mendukung pengambilan keputusan bisnis. Saya menguasai berbagai teknologi analisis dan visualisasi data.",
+    "stats": [
+      { "icon": "chart-line", "label": "3+ Proyek" },
+      { "icon": "hourglass-half", "label": "2 Tahun Pengalaman" },
+      { "icon": "database", "label": "100+ Dataset" }
+    ]
+  },
+  "skills": [
+    {
+      "icon": "database",
+      "name": "SQL",
+      "description": "Query dan manipulasi data dari database"
+    },
+    {
+      "icon": "python",
+      "name": "Python",
+      "description": "Pandas, NumPy, Matplotlib, Seaborn"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Analisis Penjualan Retail",
+      "description": "Menggunakan Python dan SQL untuk menganalisis tren penjualan.",
+      "image": "assets/img/project1.jpg",
+      "file": "assets/project-files/analisis-penjualan.pdf",
+      "tags": ["Python", "SQL"]
+    }
+  ],
+  "contact": {
+    "email": "emailkamu@example.com",
+    "linkedin": "https://linkedin.com/in/nama-kamu"
+  }
+}

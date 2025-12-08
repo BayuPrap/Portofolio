@@ -1,3 +1,39 @@
+    // Ambil data dari data.json
+fetch('data/data.json')
+    .then(response => response.json())
+    .then(data => {
+        // Render About Section
+        document.querySelector('#about-bio').textContent = data.about.bio;
+
+        // Render Stats
+        const statsContainer = document.querySelector('#stats-container');
+        data.about.stats.forEach(stat => {
+            statsContainer.innerHTML += `
+                <span class="stat-item">
+                    <i class="fas fa-${stat.icon} me-2"></i>${stat.label}
+                </span>
+            `;
+        });
+
+        // Render Projects
+        const projectsContainer = document.querySelector('#projects-container');
+        data.projects.forEach(project => {
+            projectsContainer.innerHTML += `
+                <div class="col-md-4 mb-4">
+                    <div class="card-project">
+                        <div class="project-badge">${project.tags[0]}</div>
+                        <img src="${project.image}" class="card-img-top" alt="${project.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${project.title}</h5>
+                            <p class="card-text">${project.description}</p>
+                            <a href="${project.file}" target="_blank" class="btn btn-outline-purple btn-sm">Lihat</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    });
+    
     // Contoh: Animasi saat scroll
     document.addEventListener("DOMContentLoaded", function () {
         const observer = new IntersectionObserver((entries) => {
