@@ -344,9 +344,11 @@ section {
 }
 
 .card-project img {
-    height: 200px; /* Tinggi tetap agar proporsional */
+    height: 200px;
     object-fit: cover;
     width: 100%;
+    display: block;
+    margin: 0 auto; /* Rata tengah horizontal */
 }
 
 .card-project .card-body {

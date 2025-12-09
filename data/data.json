@@ -18,6 +18,16 @@
       "icon": "python",
       "name": "Python",
       "description": "Pandas, NumPy, Matplotlib, Seaborn"
+    },
+    {
+      "icon": "chart-line",
+      "name": "Excel",
+      "description": "Analisis data dan visualisasi lanjutan"
+    },
+    {
+      "icon": "table",
+      "name": "Power BI / Tableau",
+      "description": "Dashboard interaktif dan visualisasi"
     }
   ],
   "projects": [
@@ -26,7 +36,21 @@
       "description": "Menggunakan Python dan SQL untuk menganalisis tren penjualan.",
       "image": "assets/img/project1.jpg",
       "file": "assets/project-files/analisis-penjualan.pdf",
-      "tags": ["Python", "SQL"]
+      "tags": ["Python"]
+    },
+    {
+      "title": "Dashboard Penjualan",
+      "description": "Dashboard interaktif menggunakan Power BI.",
+      "image": "assets/img/project2.jpg",
+      "file": "https://drive.google.com/file/d/...",
+      "tags": ["Power BI"]
+    },
+    {
+      "title": "Clustering Pelanggan",
+      "description": "Segmentasi pelanggan menggunakan Scikit-learn.",
+      "image": "assets/img/project3.jpg",
+      "file": "assets/project-files/notebook-penjualan.ipynb",
+      "tags": ["Scikit-Learn"]
     }
   ],
   "contact": {

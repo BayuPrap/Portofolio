@@ -1,25 +1,60 @@
     // Ambil data dari data.json
-fetch('data/data.json')
-    .then(response => response.json())
-    .then(data => {
-        // Render About Section
-        document.querySelector('#about-bio').textContent = data.about.bio;
+    fetch('data/data.json')
+        .then(response => response.json())
+        .then(data => {
+            // Render About Section
+            document.querySelector('#about-bio').textContent = data.about.bio;
 
-        // Render Stats
-        const statsContainer = document.querySelector('#stats-container');
-        data.about.stats.forEach(stat => {
-            statsContainer.innerHTML += `
-                <span class="stat-item">
-                    <i class="fas fa-${stat.icon} me-2"></i>${stat.label}
-                </span>
+            // Render Stats
+            const statsContainer = document.querySelector('#stats-container');
+            data.about.stats.forEach(stat => {
+                statsContainer.innerHTML += `
+                    <span class="stat-item">
+                        <i class="fas fa-${stat.icon} me-2"></i>${stat.label}
+                    </span>
+                `;
+            });
+
+            // Render Skills
+            const skillsContainer = document.querySelector('#skills-container');
+
+            // Kosongkan dulu
+            skillsContainer.innerHTML = '';
+
+            // Buat row
+            const row = document.createElement('div');
+            row.className = 'row text-center';
+
+            data.skills.forEach(skill => {
+                const col = document.createElement('div');
+                col.className = 'col-md-3 mb-4';
+                
+            col.innerHTML = `
+                <i class="${skill.icon === 'python' ? 'fab fa-python' : 'fas fa-' + skill.icon} fa-2x text-purple mb-3"></i>
+                <h5 class="text-light">${skill.name}</h5>
+                <p class="text-deskripsi">${skill.description}</p>
             `;
-        });
+                
+                row.appendChild(col);
+            });
 
-        // Render Projects
-        const projectsContainer = document.querySelector('#projects-container');
-        data.projects.forEach(project => {
-            projectsContainer.innerHTML += `
-                <div class="col-md-4 mb-4">
+            skillsContainer.appendChild(row);  
+
+            // Render Projects
+            const projectsContainer = document.querySelector('#projects-container');
+
+            // Kosongkan dulu container
+            projectsContainer.innerHTML = '';
+
+            // Buat row baru
+            const projectRow = document.createElement('div');
+            projectRow.className = 'row';
+
+            data.projects.forEach(project => {
+                const col = document.createElement('div');
+                col.className = 'col-md-4 mb-4';
+                
+                col.innerHTML = `
                     <div class="card-project">
                         <div class="project-badge">${project.tags[0]}</div>
                         <img src="${project.image}" class="card-img-top" alt="${project.title}">
@@ -29,45 +64,18 @@ fetch('data/data.json')
                             <a href="${project.file}" target="_blank" class="btn btn-outline-purple btn-sm">Lihat</a>
                         </div>
                     </div>
-                </div>
-            `;
-        });
-    });
-    
-    // Contoh: Animasi saat scroll
-    document.addEventListener("DOMContentLoaded", function () {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("animate__animated", "animate__fadeInUp");
-                }
+                `;
+                
+                projectRow.appendChild(col); // <-- Ganti dari 'row' ke 'projectRow'
             });
-        });
 
-        document.querySelectorAll(".card").forEach(card => {
-            card.classList.add("opacity-0");
-            observer.observe(card);
-        });
-    });
+                projectsContainer.appendChild(projectRow);
 
-    // Typewriter Effect for Hero Title
-    document.addEventListener("DOMContentLoaded", function () {
-        const text = "Hi, Saya Data Analyst";
-        const element = document.querySelector(".animate-text");
-        let index = 0;
+        projectsContainer.appendChild(projectRow);
+        })
+        .catch(err => console.error("Gagal memuat data:", err));
 
-        function typeWriter() {
-            if (index < text.length) {
-                element.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 100); // Kecepatan mengetik
-            }
-        }
-
-        // Hapus teks awal dulu, lalu mulai typewriter
-        element.textContent = "";
-        setTimeout(typeWriter, 1000); // Mulai setelah 1 detik
-    });
+        
 
     // === Navbar Hide/Show on Scroll ===
     let lastScrollTop = 0;
@@ -95,4 +103,19 @@ fetch('data/data.json')
                 behavior: 'smooth'
             });
         });
+    });
+
+    // === Fade-In Animation on Scroll ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
     });
