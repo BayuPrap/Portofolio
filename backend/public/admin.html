@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .project-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: #2d2d2d;
+            border-radius: 0.5rem;
+            border: 1px solid #444;
+        }
+        .btn-remove {
+            margin-left: 0.5rem;
+        }
+        .no-projects {
+            text-align: center;
+            padding: 2rem;
+            color: #aaa;
+        }
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+    <div class="container py-5">
+        <h1 class="text-light">Admin Panel Portofolio</h1>
+
+        <!-- Form Edit Profil -->
+        <div class="card bg-dark mb-4">
+            <div class="card-body">
+                <h3 class="text-light">Edit Profil</h3>
+                <div class="mb-3">
+                    <label class="form-label text-light">Nama</label>
+                    <input type="text" id="name" class="form-control bg-dark text-white">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-light">Bio</label>
+                    <textarea id="bio" class="form-control bg-dark text-white" rows="3"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="updateData()">Simpan Profil</button>
+            </div>
+        </div>
+
+        <!-- Form Edit Proyek -->
+        <div class="card bg-dark mb-4">
+            <div class="card-body">
+                <h3 class="text-light">Edit Proyek</h3>
+                <div id="projects-list">
+                    <!-- Ditulis oleh JS -->
+                </div>
+                <button class="btn btn-success mt-3" onclick="addProject()">Tambah Proyek</button>
+            </div>
+        </div>
+
+        <button class="btn btn-success" onclick="saveData()">Simpan Semua ke Server</button>
+    </div>
+
+    <script>
+        let currentData = null;
+
+        // Ambil data dari server
+        fetch('/api/data')
+            .then(res => {
+                if (!res.ok) throw new Error('Gagal mengambil data dari server: ' + res.status);
+                return res.json();
+            })
+            .then(data => {
+                currentData = data;
+
+                // Isi form profil
+                document.getElementById('name').value = data.about.name || '';
+                document.getElementById('bio').value = data.about.bio || '';
+
+                // Render proyek
+                renderProjects();
+            })
+            .catch(err => {
+                console.error("Error fetching data:", err);
+                document.getElementById('projects-list').innerHTML = `
+                    <div class="alert alert-danger">
+                        Gagal memuat data: ${err.message}. Pastikan server berjalan dan endpoint /api/data dapat diakses.
+                    </div>
+                `;
+            });
+
+        // Render proyek ke form
+        function renderProjects() {
+            const projectsList = document.getElementById('projects-list');
+
+            if (!currentData || !Array.isArray(currentData.projects)) {
+                projectsList.innerHTML = '<div class="alert alert-danger">Data proyek tidak valid.</div>';
+                return;
+            }
+
+            if (currentData.projects.length === 0) {
+                projectsList.innerHTML = '<div class="no-projects">Belum ada proyek. Klik "Tambah Proyek" untuk membuat yang baru.</div>';
+                return;
+            }
+
+            projectsList.innerHTML = '';
+
+            currentData.projects.forEach((proj, i) => {
+                projectsList.innerHTML += `
+                    <div class="mb-3">
+                        <label class="form-label text-light">Judul</label>
+                        <input type="text" class="form-control bg-dark text-white" value="${proj.title || ''}" placeholder="Judul" onchange="updateProject(${i}, 'title', this.value)">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-light">Deskripsi</label>
+                        <textarea class="form-control bg-dark text-white" placeholder="Deskripsi" onchange="updateProject(${i}, 'description', this.value)">${proj.description || ''}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-light">Gambar (URL)</label>
+                        <input type="text" class="form-control bg-dark text-white" value="${proj.image || ''}" placeholder="Gambar" onchange="updateProject(${i}, 'image', this.value)">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-light">File (URL)</label>
+                        <input type="text" class="form-control bg-dark text-white" value="${proj.file || ''}" placeholder="File" onchange="updateProject(${i}, 'file', this.value)">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-light">Tag</label>
+                        <input type="text" class="form-control bg-dark text-white" value="${proj.tags && proj.tags[0] ? proj.tags[0] : ''}" placeholder="Tag" onchange="updateProject(${i}, 'tags', [this.value])">
+                    </div>
+                    <button class="btn btn-danger btn-sm mb-3" onclick="removeProject(${i})">Hapus</button>
+                `;
+            });
+        }
+
+        // Update data proyek
+        function updateProject(index, field, value) {
+            if (field === 'tags') {
+                currentData.projects[index].tags = [value];
+            } else {
+                currentData.projects[index][field] = value;
+            }
+        }
+
+        // Tambah proyek baru
+        function addProject() {
+            if (!currentData) {
+                alert('Data belum siap. Tunggu sebentar.');
+                return;
+            }
+            currentData.projects.push({
+                title: "Judul Proyek Baru",
+                description: "Deskripsi proyek",
+                image: "assets/img/project.jpg",
+                file: "assets/project-files/file.pdf",
+                tags: ["Python"]
+            });
+            renderProjects();
+        }
+
+        // Hapus proyek
+        function removeProject(index) {
+            if (!currentData || !currentData.projects || currentData.projects.length <= index) return;
+            currentData.projects.splice(index, 1);
+            renderProjects();
+        }
+
+        // Update data profil
+        function updateData() {
+            if (!currentData) return;
+            currentData.about.name = document.getElementById('name').value;
+            currentData.about.bio = document.getElementById('bio').value;
+        }
+
+        // Simpan data ke server
+        function saveData() {
+            if (!currentData) {
+                alert('Data belum siap. Tunggu sebentar.');
+                return;
+            }
+            fetch('/api/data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(currentData)
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Gagal menyimpan data ke server: ' + res.status);
+                return res.json();
+            })
+            .then(data => {
+                alert(data.message || 'Data berhasil disimpan!');
+            })
+            .catch(err => {
+                alert('Gagal menyimpan data: ' + err.message);
+            });
+        }
+    </script>
+</body>
+</html>
