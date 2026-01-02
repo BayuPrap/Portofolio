@@ -35,7 +35,7 @@
     },
     {
       "icon": "chart-bar",
-      "name": "Power BI / Tableau",
+      "name": "Looker / Power BI / Tableau",
       "description": "Dashboard interaktif dan visualisasi"
     },
     {
@@ -44,9 +44,9 @@
       "description": "Membuat presentasi profesional, dashboard visual, dan infografis"
     },
     {
-    "icon": "html5",
-    "name": "HTML",
-    "description": "Struktur dasar halaman web yang semantik dan responsif"
+      "icon": "html5",
+      "name": "HTML",
+      "description": "Struktur dasar halaman web yang semantik dan responsif"
     },
     {
       "icon": "css3",
@@ -58,7 +58,6 @@
       "name": "JavaScript",
       "description": "Interaktivitas, manipulasi DOM, dan integrasi API"
     }
-
   ],
   "projects": [
     {
@@ -68,18 +67,18 @@
       "file": "assets/project-files/Dashboard_AD_Pada_Situs_Web.pdf",
       "tags": [
         [
-          "Tableau"
+          "Excel & Looker"
         ]
       ]
     },
     {
-      "title": "Judul Proyek Baru",
-      "description": "ada ada aja",
-      "image": "assets/img/project.jpg",
-      "file": "assets/project-files/file.pdf",
+      "title": "Global Population and Income Group 2014 - 2023",
+      "description": "Menggunakan Excel untuk pembersihan data dan Looker Studio untuk visualisasi, dashboard ini menyajikan tren populasi global serta distribusi berdasarkan kelompok pendapatan. Dilengkapi filter interaktif dan visual yang intuitif, memudahkan analisis demografis secara efisien.",
+      "image": "assets/img/Screenshot_3.png",
+      "file": "https://drive.google.com/file/d/1dwM2P50CJdqK-tLAJCnzVKsWQ9ZrKGSD/view?usp=sharing",
       "tags": [
         [
-          "Excel"
+          "Excel & Looker"
         ]
       ]
     },
