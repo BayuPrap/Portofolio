@@ -603,3 +603,21 @@ footer {
     text-align: center;
     width: 100%;
 }
+
+/* --- Social Media Icons --- */
+.social-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    color: var(--purple-start) !important;
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Pastikan ikon tidak terlalu besar di mobile */
+@media (max-width: 576px) {
+    .social-icon i {
+        font-size: 1.5rem;
+    }
+}

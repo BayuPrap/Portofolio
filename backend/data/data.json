@@ -37,16 +37,39 @@
       "icon": "chart-bar",
       "name": "Power BI / Tableau",
       "description": "Dashboard interaktif dan visualisasi"
+    },
+    {
+      "icon": "file-powerpoint",
+      "name": "PowerPoint / Canva",
+      "description": "Membuat presentasi profesional, dashboard visual, dan infografis"
+    },
+    {
+    "icon": "html5",
+    "name": "HTML",
+    "description": "Struktur dasar halaman web yang semantik dan responsif"
+    },
+    {
+      "icon": "css3",
+      "name": "CSS",
+      "description": "Desain visual, layout modern, dan animasi interaktif"
+    },
+    {
+      "icon": "js",
+      "name": "JavaScript",
+      "description": "Interaktivitas, manipulasi DOM, dan integrasi API"
     }
+
   ],
   "projects": [
     {
       "title": "Analisis Penjualan Retail",
       "description": "Menggunakan Python dan SQL untuk menganalisis tren penjualan.",
-      "image": "assets/img/project1.jpg",
-      "file": "assets/project-files/analisis-penjualan.pdf",
+      "image": "assets/img/Screenshot_6.png",
+      "file": "assets/project-files/Dashboard_AD_Pada_Situs_Web.pdf",
       "tags": [
-        "Python"
+        [
+          "Tableau"
+        ]
       ]
     },
     {
