@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Maulana Krisna Bayu Pratama",
-    "bio": "Saya adalah seorang Data Analyst dengan pengalaman dalam mengolah dan menganalisis data untuk mendukung pengambilan keputusan bisnis. Saya menguasai berbagai teknologi analisis dan visualisasi data.",
+    "bio": "Saya Maulana Krisna Bayu Pratama, Data Analyst yang antusias dengan pekejaan di bidang data. Dengan pengalaman menganalisis banyak dataset dan membuat dashboard interaktif, saya percaya data yang disajikan dengan jelas bisa mendorong keputusan bisnis yang lebih cerdas.\n",
     "stats": [
       {
         "icon": "chart-line",
@@ -61,8 +61,8 @@
   ],
   "projects": [
     {
-      "title": "Analisis Penjualan Retail",
-      "description": "Menggunakan Python dan SQL untuk menganalisis tren penjualan.",
+      "title": "Project Iklan Web Analytics Dashboard",
+      "description": "Menggunakan Excel dan Looker untuk menganalisis tren penjualan.",
       "image": "assets/img/Screenshot_6.png",
       "file": "assets/project-files/Dashboard_AD_Pada_Situs_Web.pdf",
       "tags": [
@@ -73,7 +73,7 @@
     },
     {
       "title": "Global Population and Income Group 2014 - 2023",
-      "description": "Menggunakan Excel untuk pembersihan data dan Looker Studio untuk visualisasi, dashboard ini menyajikan tren populasi global serta distribusi berdasarkan kelompok pendapatan. Dilengkapi filter interaktif dan visual yang intuitif, memudahkan analisis demografis secara efisien.",
+      "description": "Menggunakan Excel dan Looker tren populasi global serta distribusi berdasarkan kelompok pendapatan.",
       "image": "assets/img/Screenshot_3.png",
       "file": "https://drive.google.com/file/d/1dwM2P50CJdqK-tLAJCnzVKsWQ9ZrKGSD/view?usp=sharing",
       "tags": [
@@ -83,21 +83,25 @@
       ]
     },
     {
-      "title": "Judul Proyek Baru",
-      "description": "Deskripsi proyek",
-      "image": "assets/img/project.jpg",
-      "file": "assets/project-files/file.pdf",
+      "title": "Analisis & Visualisasi Pasar Rumah AS",
+      "description": "Menggunakan Excel untuk Analisis & Visualisasi Pasar Rumah AS.",
+      "image": "assets/img/Screenshot_174.png",
+      "file": "https://docs.google.com/spreadsheets/d/11gIEwjEjAoc_h74e3lfJULQ7mBR4BBno/edit?usp=sharing&ouid=101548568454846273812&rtpof=true&sd=true",
       "tags": [
-        "Python"
+        [
+          "Excel "
+        ]
       ]
     },
     {
-      "title": "Judul Proyek Baru",
-      "description": "Deskripsi proyek",
-      "image": "assets/img/project.jpg",
-      "file": "assets/project-files/file.pdf",
+      "title": "Analisis & Visualisasi Pasar Rumah AS (Pitch Deck)",
+      "description": "Menggunakan Canva untuk membuat PPT",
+      "image": "assets/img/Screenshot_175.png",
+      "file": "https://docs.google.com/presentation/d/1HWshzeKlUNpU4BjG82d6pExKdyr2VQHT/edit?usp=sharing&ouid=101548568454846273812&rtpof=true&sd=true",
       "tags": [
-        "Python"
+        [
+          "Canva"
+        ]
       ]
     }
   ]

@@ -35,8 +35,8 @@ router.post('/contact', async (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'bayu92971@gmail.com', // Ganti dengan email Anda
-            pass: 'imsg ylht ncuj rtgx'          // Ganti dengan App Password Gmail
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS        // Ganti dengan App Password Gmail
         }
     });
 
