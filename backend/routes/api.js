@@ -42,8 +42,8 @@ router.post('/contact', async (req, res) => {
 
     // Opsi email
     let mailOptions = {
-        from: `"Portfolio Contact" <bayu92971@gmail.com>`, // HARUS email Anda
-        to: 'bayu92971@gmail.com',                       // Anda sebagai penerima
+        from: `"Portfolio Contact" < @gmail.com>`, // HARUS email Anda
+        to: ' ',                       // Anda sebagai penerima
         replyTo: email, // ← Penting! Ini supaya "Balas" otomatis ke pengunjung
         subject: ` ${subject}`,
         text: `Pesan dari: ${name} (${email})\n\n"${message}"`
