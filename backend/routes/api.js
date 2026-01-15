@@ -36,7 +36,7 @@ router.post('/contact', async (req, res) => {
         service: 'gmail',
         auth: {
             user: 'bayu92971@gmail.com', // Ganti dengan email Anda
-            pass: 'imsg ylht ncuj rtgx'          // Ganti dengan App Password Gmail
+            pass:  // Ganti dengan App Password Gmail
         }
     });
 
