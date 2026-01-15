@@ -35,15 +35,15 @@ router.post('/contact', async (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'bayu92971@gmail.com', // Ganti dengan email Anda
+            user: ' @gmail.com', // Ganti dengan email Anda
             pass:  // Ganti dengan App Password Gmail
         }
     });
 
     // Opsi email
     let mailOptions = {
-        from: `"Portfolio Contact" <bayu92971@gmail.com>`, // HARUS email Anda
-        to: 'bayu92971@gmail.com',                       // Anda sebagai penerima
+        from: `"Portfolio Contact" < @gmail.com>`, // HARUS email Anda
+        to: ' ',                       // Anda sebagai penerima
         replyTo: email, // ← Penting! Ini supaya "Balas" otomatis ke pengunjung
         subject: ` ${subject}`,
         text: `Pesan dari: ${name} (${email})\n\n"${message}"`
