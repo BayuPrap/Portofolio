@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Untuk mengakses admin.html
+app.use(express.static('.')); // '.' = root folder
 app.use('/api', apiRoutes);
 
 // Rute untuk admin panel
