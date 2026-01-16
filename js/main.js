@@ -111,37 +111,6 @@
         });
     });
 
-    // === Handle Form Submit ===
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        const formData = { name, email, subject, message };
-
-        fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        })
-        .then(res => res.json())
-        .then(data => {
-            // ✅ Gunakan ternary untuk handle jika message atau error ada
-            const msg = data.message || data.error || "Terjadi kesalahan tak terduga.";
-            alert(msg);
-            if (data.message) {
-                document.getElementById('contactForm').reset();
-            }
-        })
-        .catch(err => {
-            alert('Gagal mengirim pesan. Silakan coba lagi.');
-            console.error("Error:", err);
-        });
-    });
-
     // === Fade-In & Fade-Out Animation on Scroll ===
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
