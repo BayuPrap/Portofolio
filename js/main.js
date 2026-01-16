@@ -1,5 +1,5 @@
     // Ambil data dari data.json
-    fetch('/data/data.json')
+    fetch('/data.json')
         .then(response => response.json())
         .then(data => {
             // Render About Section
