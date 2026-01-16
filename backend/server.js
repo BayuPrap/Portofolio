@@ -3,8 +3,6 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const apiRoutes = require('./routes/api');
-const dotenv = require('dotenv');
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.')); // '.' = root folder
+app.use(express.static(path.join(__dirname, '..')));
 app.use('/api', apiRoutes);
 
 // Rute untuk admin panel
@@ -22,7 +20,7 @@ app.get('/admin', (req, res) => {
 
 // Rute untuk data JSON
 app.get('/data/data.json', (req, res) => {
-    res.sendFile(path.join(__dirname, 'data', 'data.json'));
+    res.sendFile(path.join(__dirname, '..', 'data', 'data.json'));
 });
 
 app.listen(PORT, () => {

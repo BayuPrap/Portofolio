@@ -27,35 +27,4 @@ router.post('/data', (req, res) => {
     });
 });
 
-// --- Send Email ---
-router.post('/contact', async (req, res) => {
-    const { name, email, subject, message } = req.body;
-
-    // Konfigurasi transporter (Gmail)
-    let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS        // Ganti dengan App Password Gmail
-        }
-    });
-
-    // Opsi email
-    let mailOptions = {
-        from: `"Portfolio Contact" <bayu92971@gmail.com>`, // HARUS email Anda
-        to: 'bayu92971@gmail.com',                       // Anda sebagai penerima
-        replyTo: email, // ← Penting! Ini supaya "Balas" otomatis ke pengunjung
-        subject: ` ${subject}`,
-        text: `Pesan dari: ${name} (${email})\n\n"${message}"`
-    };
-
-    try {
-        await transporter.sendMail(mailOptions);
-        res.json({ message: 'Pesan Anda telah terkirim! Terima kasih.' });
-    } catch (error) {
-        console.error("Error sending email:", error);
-        res.status(500).json({ error: 'Gagal mengirim email. Silakan coba lagi.' });
-    }
-});
-
 module.exports = router;
